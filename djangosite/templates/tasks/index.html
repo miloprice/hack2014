@@ -18,10 +18,19 @@
 
 <body>
 <style>
-	.main-body{
-		padding-top: 1.3cm;
+	.login_form{
+		clear: both;
+		display: inline-block;
+		overflow: hidden;
+		width: auto;
+		white-space: nowrap;
+	}
+	header, section{
+		margin:0 1% 25px 1%;
+		clear: both;
 	}
 </style>
+<header>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -30,24 +39,32 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="/tasks/">Home</a>
+			<a class="brand" href="/tasks/">Home</a>
 
             <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
-					{% if user.is_authenticated %}
-					<li><a href="/tasks/">Welcome, {{ user.first_name }} {{ user.last_name }}!</a></li>
-					{% else %}
-					
-                    {% endif %}
-                </ul>
+				</div>
+				<div class="nav pull-right">
+					<ul class="nav nav-pills" roll="tablist">
+						{% if user.is_authenticated %}
+						<li>Hello</li>
+						{% else %}
+						<form class="form-signin span4" id="login_form" method="post" action="/tasks/">
+						{% csrf_token %}
+						UserName: <input type="text" class="input-block-level" name="username" value="" size="20" />
+						Password: <input type="password" class="input-block-level" name="password" value="" size="20" />
+						<button type="submit" class="btn btn-default navbar-btn">Login</button>
+					</form>
+				</li>
+			</ul>
+		</div>
 
-                <ul class="nav">
-                </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
     </div>
 </div>
+</header>
+<section>
 <div class = "main-body">
 	<div class = "panel-group" id="accordin">
 		<div class = "panel panel-default">
@@ -87,36 +104,7 @@
             </div>
         </div>
     </div>
-
-<!--
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span3">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li></li>
-                    <li></li>
-                    {% block navbar %}
-                    {% endblock %}
-                </ul>
-            </div>
-            <!--/.well -->
-
-        </div>
-        <!--/span-->
-        <div class="span9">
-
-            {% block body_block %}
-            {% endblock %}
-
-        </div>
-        <!--/span-->
-    </div>
-    <!--/row-->
-
-</div>
--->
-
+</section>
 <hr>
 
 <footer>
