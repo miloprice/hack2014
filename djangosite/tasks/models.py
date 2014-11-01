@@ -11,7 +11,7 @@ class UserProfile(models.Model):
 class Priority(models.Model):
     name = models.CharField(max_length=32)
     ranking = models.IntegerField()
-\
+
     def __unicode__(self):
         return self.name
 
