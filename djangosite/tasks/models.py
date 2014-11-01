@@ -16,16 +16,24 @@ class Priority(models.Model):
         return self.name
 
 class Status(models.Model):
-    completed = models.IntegerField()
-    total = models.IntegerField()
     qualitative = models.CharField(max_length=32)
+
+    def __unicode__(self):
+        return self.qualitative
 
 class Size(models.Model):
     name = models.CharField(max_length=32)
     ranking = models.IntegerField()
 
+    def __unicode__(self):
+        return self.name
+
 class Tag(models.Model):
     name = models.CharField(max_length=32)
+    #color = models.CharField(max_length=6)
+
+    def __unicode__(self):
+        return self.name
 
 class Task(models.Model):
     name = models.CharField(max_length=32)
@@ -39,3 +47,15 @@ class Task(models.Model):
     repeat = models.BooleanField(default=False)
     location = models.CharField(max_length=64)
     desc = models.CharField(max_length=128)
+    #hard_deadline = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return self.name
+
+class Subgoal(models.Model):
+    name = models.CharField(max_length=64)
+    completed = models.BooleanField(default=False)
+    task = models.ForeignKey(Task)
+
+    def __unicode__(self):
+        return self.name
