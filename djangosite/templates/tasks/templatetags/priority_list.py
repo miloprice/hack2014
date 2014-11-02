@@ -5,14 +5,6 @@ register = template.Library()
 
 @register.filter(name='priority_list')
 def priority_list(list_of_tasks):
-    def render(self, context):
-        site_name = getarrr(settings, "/tasks/", False)
-        if not site_name:
-            return "<!-- error message -->"
-        if settings.DEBUG:
-            return 'debug|| '+ site_name
-        return site_name
-
     def duedateCalc(year, month, day, hour):
         time_remaining = datetime.datetime(year=year, month=month, day=day, hour=hour) - datetime.datetime.now()
         return float(time_remaining.seconds) / 3600.0

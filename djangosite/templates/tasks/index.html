@@ -124,7 +124,7 @@
 						{% if tasks %}
 						{% for task in tasks|priority_list %}
 						<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }}</li>
-						{% endfor %}
+						<!--{% endfor %}-->
 						{% else %}
 						<p>No tasks to complete</p>
 						{% endif %}
