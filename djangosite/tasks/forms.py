@@ -34,10 +34,10 @@ class TagForm(forms.ModelForm):
         fields = ['name', 'color']
 
 class TaskForm(forms.ModelForm):
-    name = forms.CharField(help_text = 'Name of task')
+    name = forms.CharField(help_text = 'Name of task', label='Name')
     size = forms.ModelChoiceField(widget=forms.RadioSelect, empty_label = None, queryset = Size.objects.all(), help_text = 'Size')
     #due = forms.DateField(widget = SplitDateTimeWidget)
-    due = forms.DateField(widget = AdminDateWidget, help_text = 'Due date')
+    due = forms.DateField(widget = AdminDateWidget, label='Due', help_text = 'Due date')
     assigned = forms.DateField(widget = SelectDateWidget, help_text = 'Date assigned', required = False)
     status = Status.objects.all()
     all_day = forms.NullBooleanSelect()

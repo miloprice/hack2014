@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <title>Tasks </title>
+    <title>Tasks</title>
 
 </head>
 
@@ -103,7 +103,7 @@
 						<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
 						-->
 						{% for field in form.visible_fields %}
-							{{ field.name }}
+							{{ field.label }}
 							{{ field }}
 							<br />
 						{% endfor %}
