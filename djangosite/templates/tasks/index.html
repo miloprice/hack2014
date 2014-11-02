@@ -147,10 +147,10 @@
             <div id="collapseTwo" class="panel-collapse collapse in">
 				<div class="panel-body">
 					<ol>
-						<li>Math Homework 2, Due: Nov. 7, 2014, Size: three, Description: </li>
-					        <li>Programming Assignment, Due: Nov. 10, 2014, Size: two, Description: lab4 functions</li>
-						<li>Spanish Translations, Due: Nov. 12, 2014, Size: one, Description: Animals</li>
-						<li>Intro sections, Due: Nov. 16, 2014, Size: one, Description: </li>
+						<li>Math Homework 2, Due: Nov. 7, 2014, midnight, Size: three, Description: </li>
+					        <li>Programming Assignment, Due: Nov. 10, 2014, midnight, Size: two, Description: lab4 functions</li>
+						<li>Spanish Translations, Due: Nov. 12, 2014, midnight, Size: one, Description: Animals</li>
+						<li>Intro sections, Due: Nov. 16, 2014, midnight, Size: one, Description: </li>
 						{% if tasks %}
 							{% for task in tasks|priority_list %}
 							<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }} Description: {{ task.desc }}</li>
@@ -189,8 +189,8 @@
 
 <footer>
     <div class="container">
-        <p>&copy; Koding with a K</p>
-    </div>
+		<p>&copy; Koding with a K</p> <a href="http://www.twitter.com/dogemountain/"><img src="/static/images/Twitter.png" height=50px width=50px></a> <a href="http://www.linkedin.com/pub/rainier-harvey/97/43/61b/"><img src="/static/images/linkedin.gif" height=50px width=50px></a>
+		</div>
 </footer>
 
 
