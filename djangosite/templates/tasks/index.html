@@ -103,7 +103,7 @@
 						<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
 						-->
 						{% for field in form.visible_fields %}
-							{{ field.name }}
+							{{ field.label}}
 							{{ field }}
 							<br />
 						{% endfor %}
@@ -120,10 +120,10 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse in">
 				<div class="panel-body">
-					<ul>
+					<ol>
 						{% if tasks %}
 						{% for task in tasks %}
-						<li>{{ task }}</li>
+						<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }}</li>
 						{% endfor %}
 						{% else %}
 						<p>No tasks to complete</p>
