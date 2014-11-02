@@ -11,7 +11,7 @@ class UserProfile(models.Model):
 class Priority(models.Model):
     name = models.CharField(max_length=32)
     ranking = models.IntegerField()
-\
+
     def __unicode__(self):
         return self.name
 
@@ -30,7 +30,7 @@ class Size(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=32)
-    #color = models.CharField(max_length=6)
+    color = models.CharField(max_length=6)
 
     def __unicode__(self):
         return self.name

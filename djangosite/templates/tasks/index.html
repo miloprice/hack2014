@@ -1,73 +1,139 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
-<link href="{% static 'css/bootstrap-fluid-adj.css'%} " rel="stylesheet">
-<link href="{% static 'css/bootstrap.min.css'%} " rel="stylesheet" media="screen">
-<link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
-<title>Hackathon 2014- {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap-fluid-adj.css'%} " rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css'%} " rel="stylesheet" media="screen">
+	<link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <title>Tasks </title>
+
 </head>
+
 <body>
+<style>
+	header, section{
+		margin:0 1% 25px 1%;
+		clear: both;
+	}
+</style>
+<header>
 <div class="navbar navbar-inverse navbar-fixed-top">
-<div class="navbar-inner">
-<div class="container">
-<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="brand" href="/index.html">Home</a>
-<div class="nav-collapse collapse">
-<ul class="nav pull-right">
-</ul>
-<ul class="nav">
-<!--<li><a href="http://www.djangoproject.com/">Documentation</a></li> -->
-</ul>
+    <div class="navbar-inner">
+        <div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+			<a class="brand" href="/tasks/">Home</a>
+			<div class="nav-collapse collapse">
+			</div>
+			<div class="nav pull-right">
+				{% if user.is_authenticated %}
+				<li><a href="/tasks/logout/">Logout</a></li> 
+				{% else %}
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign Up<strong class="caret"></strong></a>
+					<div class="dropdown-menu"style="padding: 15px; padding-bottom: 0px;">
+						<form id="user_form" method="post" action="register" accept-charset="UTF-8" enctype="multipart/form-data">
+							{% csrf_token %}
+							<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+							<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+							<input style="margin-bottom: 15px;" type="email" placeholder="email" id="email" name="email">
+							<input style="margin-bottom: 15px;" type="text" placeholder="First Name" id="first_name" name="first_name">
+							<input style="margin-bottom: 15px;" type="text" placeholder="Last Name" id="last_name" name="last_name">
+							<input class="btn btn-primary btn-block" type="submit" id="UserForm" name="UserForm" value="Sign up">
+							{{ user_form.as_p }}
+						</form>
+					</div>
+				</li>
+
+				<li class="divider-vertical"></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+					<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+						<form method="post" action="login" accept-charset="UTF-8" enctype="multipart/form-data">
+								{% csrf_token %}
+								<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+								<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+								<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
+								<label class="string optional" for="user_remember_me"> Remember me</label>
+								<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+							</form>
+						</div>
+					</li>
+				</ul>
+				{% endif %}
+			</div>
+
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
 </div>
-<!--/.nav-collapse -->
-</div>
-</div>
-</div>
-<div class="container-fluid">
-<div class="row-fluid">
-<div class="span3">
-<div class="well sidebar-nav">
-<ul class="nav nav-list">
-<li></li>
-<li></li>
-{% block navbar %}
-{% endblock %}
-</ul>
-<ul class="nav nav-list">
-<li class="nav-header">Find a sub</li>
-<form>
-<label></label>
-<li><input class="search-query span10" type="text" name="suggestion" value="" id="suggestion" /></li>
-</form>
-</ul>
-</div>
-<!--/.well -->
-</div>
-<!--/span-->
-<div class="span9">
-{% block body_block %}
-{% endblock %}
-</div>
-<!--/span-->
-</div>
-<!--/row-->
-</div>
-<!--/.fluid-container-->
+</header>
+<section>
+<div class = "main-body">
+	<div class = "panel-group" id="accordin">
+		<div class = "panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. What is HTML?</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What is Twitter Bootstrap?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Twitter Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <hr>
+
 <footer>
-<div class="container">
-<p>&copy; Hackathon 2014</p>
-</div>
+    <div class="container">
+        <p>&copy; Koding with a K</p>
+    </div>
 </footer>
+
+
 <hr/>
+
+
 <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
 </body>
 </html>
