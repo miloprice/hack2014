@@ -16,11 +16,13 @@ from tasks.TKalgorithm import duedateCalc, TKalgorithm, SortingDict
 def index(request):
     context = RequestContext(request)
     context_dict = {}
-    try:
-        user = str(request.user.get_full_name())
-        context_dict['user'] = User.objects.filter(name = user)
-    except:
-        context_dict['user'] = None
+    name = request.user.username
+    context_dict['user'] = User.objects.filter(username= name)
+#    try:
+#        user = str(request.user.get_email())
+#        context_dict['user'] = User.objects.filter(email= user)
+#    except:
+#        context_dict['user'] = None
     context_dict['form'] = TaskForm()
     context_dict['tasks'] = Task.objects.all()
     return render_to_response('tasks/index.html', context_dict, context)
@@ -43,6 +45,7 @@ def register(request):
             #profile = profile_form.save(commit = False)
             #proifle.user = user
             registered = True
+            return render_to_response('tasks/index.html', {'user', user}, context)
         else:
             # if form not complete or wrong
             print(user_form.errors)

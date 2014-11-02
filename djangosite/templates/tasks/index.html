@@ -59,12 +59,24 @@
 					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
 					<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
 						<form method="post" action="login" accept-charset="UTF-8" enctype="multipart/form-data">
-								{% csrf_token %}
+							{% csrf_token %}
+							{% if bad_details %}
+			<p><strong>Your username and/or password were incorrect</strong></p>
+			{% elif desabled_account %}
+			<p><strong>Your account is currently disabled</strong></p>
+			{% endif %}
+			{% csrf_token %}
+			Username: <input type="text" class="input-block-level"  name="username" value="" size="50" />
+			<br />
+			Password: <input type="password" class="input-block-level" name="password" value=" " size="50" />
+			<br />
+			<button class="btn btn-primary" type="submit">Sign in </button>
+			<!--
 								<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
 								<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
 								<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
 								<label class="string optional" for="user_remember_me"> Remember me</label>
-								<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+								<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In"> -->
 							</form>
 						</div>
 					</li>
@@ -133,9 +145,15 @@
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">User Profile</a>
 				</h4>
+				{% if user.is_authenticated %}
 				<ul>
-					<li>{{ user }}</li>
+					<li>{{ user.user_name }}</li>
+					<li>{{ user.first_name }} {{ user.last_name }}</li>
+					<li>{{ user.email }}</li>
 				</ul>
+				{% else %}
+				<h4>Please login to see user profile</h4>
+				{% endif %}
             </div>
             <div id="collapseThree" class="panel-collapse collapse">
                 <div class="panel-body">
