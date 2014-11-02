@@ -8,12 +8,6 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.user.name
 
-class Status(models.Model):
-    qualitative = models.CharField(max_length=32)
-
-    def __unicode__(self):
-        return self.qualitative
-
 class Size(models.Model):
     name = models.CharField(max_length=32)
     ranking = models.IntegerField()
@@ -30,10 +24,8 @@ class Tag(models.Model):
 
 class Task(models.Model):
     name = models.CharField(max_length=32)
-    assigned = models.DateTimeField()
     due = models.DateTimeField()
     tags = models.ManyToManyField(Tag)
-    status = models.ForeignKey(Status)
     size = models.ForeignKey(Size)
     all_day = models.BooleanField(default=False)
     repeat = models.BooleanField(default=False)
