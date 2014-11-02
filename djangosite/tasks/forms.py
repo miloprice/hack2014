@@ -1,6 +1,6 @@
 from django import forms
 from tasks.models import Priority, Status, Size, Tag, Task, Subgoal
-from django.contrib.auth.models import Users
+from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
     username = forms.CharField(help_text = "Please enter a username")
