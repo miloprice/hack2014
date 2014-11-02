@@ -26,7 +26,7 @@ class SizeForm(forms.ModelForm):
         fields = ['name', 'ranking']
 
 class TagForm(forms.ModelForm):
-    
+ 
     class Meta:
         model = Tag
         fields = ['name', 'color']
