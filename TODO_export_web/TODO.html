@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Napkee export</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/datepicker.css">
+	<link rel="stylesheet" href="css/colorpicker.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="css/jquery.orgchart.css">
+	<link rel="stylesheet" href="css/jquery.treeview.css">
+	
+	
+	<style type="text/css">
+	#napkeeCanvas {
+		position:absolute;
+		left:0px;
+		top:0px;
+	}
+	.napkeeComponent {
+		position:absolute;
+		white-space: nowrap;
+	}
+	.napkeeRelativeComponent {
+		position:absolute;
+		white-space: nowrap;
+	}
+	
+	
+#nap35c{
+	position:absolute;
+	left:334px;
+	top:228px;
+	width:584px;
+	height:32px;
+	z-index:0;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap35table{
+	width:584px;
+	height:32px;
+	z-index:1;
+	display:none;
+}
+
+#nap35label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap1container{
+	left:334px;
+	top:177px;
+	z-index:2;
+	width:609px;
+	height:636px;
+	overflow:hidden;
+	border:none;
+}
+#nap1container table.napkee {
+	margin:0;
+	padding:0;
+	border-spacing:0px;
+	width:100%;
+	height:593px;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+
+#nap1container table.napkee th{
+	background-color:#CCC;
+	height:20px;
+	padding-left:5px;
+}
+#nap1container table.napkee td{
+	padding-left:5px;
+	height:30px;
+	border:0px;
+}
+
+#nap1container table.napkee .verticalLine{
+	border-right:1px solid #000;
+}
+
+#nap1container table.napkee .horizontalLine{
+	border-bottom:1px solid #000;
+}
+#nap1container table.napkee td.odd{
+	background-color:#EEEEEE;
+}
+#nap1container table.napkee td.even{
+	background-color:#FFFFFF;
+}
+
+#nap1container table.napkee td.filler{
+	height:23px;
+}
+
+	
+#nap2{
+	left:1002px;
+	top:101px;
+	z-index:3;
+}
+
+#nap2.napkee {
+	width:110px;
+	height:44px;
+	color:#FFFFFF;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+
+	
+#nap3{
+	left:574px;
+	top:101px;
+	width:85px;
+	height:62px;
+	z-index:4;
+}
+	
+#nap5{
+	left:1011px;
+	top:160px;
+	width:59.400000000000006px;
+	height:26px;
+	z-index:5;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap8{
+	left:352px;
+	top:221px;
+	z-index:6;
+	width:305px;
+	height:143px;
+	font-size: 28px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#nap12c{
+	position:absolute;
+	left:1002px;
+	top:186px;
+	width:138px;
+	height:100px;
+	z-index:7;
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+#nap12table{
+	width:138px;
+	height:100px;
+	z-index:8;
+	display:none;
+}
+
+#nap12label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap6{
+	left:1011px;
+	top:192px;
+	width:35.2px;
+	height:21px;
+	z-index:8;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap13c{
+	position:absolute;
+	left:1002px;
+	top:297px;
+	width:173px;
+	height:104px;
+	z-index:9;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap13table{
+	width:173px;
+	height:104px;
+	z-index:10;
+	display:none;
+}
+
+#nap13label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap4{
+	left:1011px;
+	top:192px;
+	z-index:10;
+	width:138px;
+	height:215px;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#nap7{
+	left:1011px;
+	top:301px;
+	width:88px;
+	height:21px;
+	z-index:11;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap14_0c{
+	position:absolute;
+	left:1127px;
+	top:331px;
+	width:13px;
+	height:12px;
+	z-index:0;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap14_0table{
+	width:13px;
+	height:12px;
+	z-index:1;
+	display:none;
+}
+
+#nap14_0label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap14_1c{
+	position:absolute;
+	left:1154px;
+	top:353px;
+	width:13px;
+	height:12px;
+	z-index:1;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap14_1table{
+	width:13px;
+	height:12px;
+	z-index:2;
+	display:none;
+}
+
+#nap14_1label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap14_2c{
+	position:absolute;
+	left:1127px;
+	top:374px;
+	width:13px;
+	height:12px;
+	z-index:2;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap14_2table{
+	width:13px;
+	height:12px;
+	z-index:3;
+	display:none;
+}
+
+#nap14_2label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap15{
+	left:821px;
+	top:221px;
+	width:49px;
+	height:28px;
+	z-index:13;
+}
+	
+#nap16{
+	left:821px;
+	top:250px;
+	width:49px;
+	height:28px;
+	z-index:14;
+}
+	
+#nap17{
+	left:823px;
+	top:280px;
+	width:49px;
+	height:28px;
+	z-index:15;
+}
+	
+#nap18{
+	left:821px;
+	top:308px;
+	width:49px;
+	height:28px;
+	z-index:16;
+}
+	
+#nap19{
+	left:822px;
+	top:338px;
+	width:49px;
+	height:28px;
+	z-index:17;
+}
+	
+#nap20{
+	left:775px;
+	top:192px;
+	width:146.3px;
+	height:21px;
+	z-index:18;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap21{
+	left:385px;
+	top:108px;
+	width:168px;
+	height:31px;
+	z-index:19;
+	font-size: 28px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:center;
+	color:#000000;
+}
+	
+#nap23c{
+	position:absolute;
+	left:760px;
+	top:108px;
+	width:45px;
+	height:48px;
+	z-index:20;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap23table{
+	width:45px;
+	height:48px;
+	z-index:21;
+	display:inline-table;
+}
+
+#nap23label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap24c{
+	position:absolute;
+	left:826px;
+	top:110px;
+	width:44px;
+	height:45px;
+	z-index:21;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap24table{
+	width:44px;
+	height:45px;
+	z-index:22;
+	display:inline-table;
+}
+
+#nap24label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap25{
+	left:821px;
+	top:89px;
+	width:74.80000000000001px;
+	height:21px;
+	z-index:22;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap26{
+	left:763px;
+	top:89px;
+	width:42.900000000000006px;
+	height:21px;
+	z-index:23;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap28{
+	left:586px;
+	top:127px;
+	width:146px;
+	height:51px;
+	z-index:24;
+}
+	
+#nap29container{
+	left:918px;
+	top:196px;
+	z-index:25;
+}
+#nap29{
+	height:585px;
+}
+	
+#nap30container{
+	left:1208px;
+	top:84px;
+	z-index:26;
+}
+#nap30{
+	height:697px;
+}
+	
+#nap31{
+	left:352px;
+	top:192px;
+	width:100.10000000000001px;
+	height:21px;
+	z-index:27;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap32c{
+	position:absolute;
+	left:1002px;
+	top:416px;
+	width:138px;
+	height:97px;
+	z-index:28;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap32table{
+	width:138px;
+	height:97px;
+	z-index:29;
+	display:none;
+}
+
+#nap32label{
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap33{
+	left:1011px;
+	top:445px;
+	z-index:29;
+	width:66px;
+	height:61px;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#nap34{
+	left:1011px;
+	top:420px;
+	width:48.400000000000006px;
+	height:21px;
+	z-index:30;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap36{
+	left:303px;
+	top:86px;
+	width:77px;
+	height:79px;
+	z-index:31;
+	border:0px solid;
+}
+
+#nap36table{
+	left:303px;
+	top:86px;
+	width:77px;
+	height:79px;
+	z-index:32;
+	display:inline-table;
+}
+
+#nap36label{
+	font-size: 10px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+	</style>
+	
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="js/jquery.migration.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.swfobject.1-0.5.min.js"></script>
+    <script src="js/swfobject.js"></script>
+    <script src="js/jquery.sparkline.min.js"></script>
+    <script src="js/bootstrap-colorpicker.js"></script>
+    <script src="js/jquery.tools.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/jquery.orgchart.min.js"></script>
+    <script src="js/jquery.treeview.min.js"></script>
+    <script src="js/jquery.tagcloud.min.js"></script>
+	
+  </head>
+  <body>
+  
+	
+
+
+	
+<div id="nap35c" class="napkeeComponent napkeeShape">
+<div id="nap35"></div>
+<table border="0" id="nap35table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap35label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap1container" class="napkeeComponent napkeeDatagrid">
+	<table id="nap1" class="table">
+		<thead>
+	<tr>
+		<th class="verticalLine">Name<br/>(job title) <i class='icon-sort-up'></i></th>
+		<th class="verticalLine">Age <i class='icon-sort'></i></th>
+		<th class="verticalLine">Nickname</th>
+		<th>Employee <i class='icon-sort-down'></i></th>
+</tr></thead>
+		<tbody><tr><td class="odd verticalLine">Giacomo Guilizzoni<br/>Founder &amp; CEO</td><td class="odd verticalLine">37</td><td class="odd verticalLine">Peldi</td><td class="odd"><input type="radio" checked="checked" /></td></tr>
+<tr><td class="even verticalLine">Marco Botton<br/>Tuttofare</td><td class="even verticalLine">34</td><td class="even verticalLine"></td><td class="even"><input type="checkbox" checked="checked" /></td></tr>
+<tr><td class="odd verticalLine">Mariah Maclachlan<br/>Better Half</td><td class="odd verticalLine">37</td><td class="odd verticalLine">Patata</td><td class="odd"><input type="checkbox" checked="checked" /></td></tr>
+<tr><td class="even verticalLine">Valerie Liberty<br/>Head Chef</td><td class="even verticalLine">:)</td><td class="even verticalLine">Val</td><td class="even"><input type="checkbox" checked="checked" /></td></tr>
+<tr><td class="odd verticalLine">Guido Jack Guilizzoni</td><td class="odd verticalLine">6</td><td class="odd verticalLine">The Guids</td><td class="odd"><input type="checkbox" /></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd"></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd"></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd"></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd"></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd"></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd verticalLine"></td><td class="odd"></td></tr>
+<tr><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even verticalLine"></td><td class="even"></td></tr>
+<tr><td class="odd filler verticalLine"></td><td class="odd filler verticalLine"></td><td class="odd filler verticalLine"></td><td class="odd filler"></td></tr>
+</tbody>
+	</table>
+</div>
+	
+<button id="nap2" type="button" class="napkeeComponent napkeeButton btn"><table align="center"><tr><td valign="middle"><img src="icons/napkee/SquaredPlusIcon.png" width="24" height="24" /> </td><td valign="middle">Add Task</td></tr></table></button>
+	
+<div id="nap3" class="napkeeComponent napkeeColumnchart"></div>
+	
+<span id="nap5" class="napkeeComponent napkeeLabel ">Filters:</span>
+	
+<div id="nap8" class="napkeeComponent napkeeCheckboxGroup">
+	<label for="nap8i0" class="checkbox">
+	<input id="nap8i0" type="checkbox"/>
+	History Essay</label>
+	
+
+	<label for="nap8i1" class="checkbox">
+	<input id="nap8i1" type="checkbox"/>
+	Make Lasanga</label>
+	
+
+	<label for="nap8i2" class="checkbox">
+	<input id="nap8i2" type="checkbox"/>
+	Read Chapter 4</label>
+	
+
+	<label for="nap8i3" class="checkbox">
+	<input id="nap8i3" type="checkbox"/>
+	Find Mother&apos;s Day gift</label>
+	
+
+
+</div>
+	
+<div id="nap12c" class="napkeeComponent napkeeShape">
+<div id="nap12"></div>
+<table border="0" id="nap12table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap12label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<span id="nap6" class="napkeeComponent napkeeLabel ">Tags:</span>
+	
+<div id="nap13c" class="napkeeComponent napkeeShape">
+<div id="nap13"></div>
+<table border="0" id="nap13table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap13label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap4" class="napkeeComponent napkeeCheckboxGroup">
+	<span id="nap4i0"></span>
+	
+
+	<label for="nap4i1" class="checkbox">
+	<input id="nap4i1" type="checkbox"/>
+	Home (7)</label>
+	
+
+	<label for="nap4i2" class="checkbox">
+	<input id="nap4i2" type="checkbox"/>
+	Work (12)</label>
+	
+
+	<label for="nap4i3" class="checkbox">
+	<input id="nap4i3" type="checkbox"/>
+	Other (3)</label>
+	
+
+	<span id="nap4i4"></span>
+	
+
+	<span id="nap4i5"></span>
+	
+
+	<label for="nap4i6" class="checkbox">
+	<input id="nap4i6" type="checkbox"/>
+	High Priority (2)</label>
+	
+
+	<label for="nap4i7" class="checkbox">
+	<input id="nap4i7" type="checkbox"/>
+	Medium Priority (10)</label>
+	
+
+	<label for="nap4i8" class="checkbox">
+	<input id="nap4i8" type="checkbox"/>
+	Low Priority (4)</label>
+	
+
+
+</div>
+	
+<span id="nap7" class="napkeeComponent napkeeLabel ">Priority Level:</span>
+	
+<div id="nap14_0c" class="napkeeComponent napkeeShape">
+<div id="nap14_0"></div>
+<table border="0" id="nap14_0table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap14_0label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap14_1c" class="napkeeComponent napkeeShape">
+<div id="nap14_1"></div>
+<table border="0" id="nap14_1table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap14_1label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap14_2c" class="napkeeComponent napkeeShape">
+<div id="nap14_2"></div>
+<table border="0" id="nap14_2table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap14_2label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap15" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
+	
+<div id="nap16" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
+	
+<div id="nap17" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
+	
+<div id="nap18" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
+	
+<div id="nap19" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
+	
+<span id="nap20" class="napkeeComponent napkeeLabel ">Complete/Uncomplete</span>
+	
+<span id="nap21" class="napkeeComponent napkeeTitle">Jane&apos;s Tasks</span>
+	
+<div id="nap23c" class="napkeeComponent napkeeShape">
+<div id="nap23"></div>
+<table border="0" id="nap23table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap23label" class="napkeeShapeLabel">15<br/></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap24c" class="napkeeComponent napkeeShape">
+<div id="nap24"></div>
+<table border="0" id="nap24table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap24label" class="napkeeShapeLabel">32<br/></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<span id="nap25" class="napkeeComponent napkeeLabel ">Completed </span>
+	
+<span id="nap26" class="napkeeComponent napkeeLabel ">Tasks </span>
+	
+<div id="nap28" class="napkeeComponent napkeeTooltip" title="Aug 3rd.6 tasks completed"></div>
+	
+<div id="nap29container" class="napkeeComponent napkeeVerticalScrollBarContainer">
+	<div class="napkeeVerticalScrollArrowUp">
+		<i class="icon-caret-up"></i>
+	</div>
+	<div id="nap29" class="napkeeVerticalScrollBar">
+		<div class="napkeeVerticalScrollHandle">
+		</div>
+	</div>
+	<div class="napkeeVerticalScrollArrowDown">
+		<i class="icon-caret-down"></i>
+	</div>
+</div>
+	
+<div id="nap30container" class="napkeeComponent napkeeVerticalScrollBarContainer">
+	<div class="napkeeVerticalScrollArrowUp">
+		<i class="icon-caret-up"></i>
+	</div>
+	<div id="nap30" class="napkeeVerticalScrollBar">
+		<div class="napkeeVerticalScrollHandle">
+		</div>
+	</div>
+	<div class="napkeeVerticalScrollArrowDown">
+		<i class="icon-caret-down"></i>
+	</div>
+</div>
+	
+<span id="nap31" class="napkeeComponent napkeeLabel ">Current Tasks :</span>
+	
+<div id="nap32c" class="napkeeComponent napkeeShape">
+<div id="nap32"></div>
+<table border="0" id="nap32table" class="napkeeComponent napkeeShapeTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap32label" class="napkeeShapeLabel"></span>
+		</td>
+	</tr>
+</table>
+</div>
+	
+<div id="nap33" class="napkeeComponent napkeeCheckboxGroup">
+	<label for="nap33i0" class="checkbox">
+	<input id="nap33i0" type="checkbox"/>
+	Small</label>
+	
+
+	<label for="nap33i1" class="checkbox">
+	<input id="nap33i1" type="checkbox"/>
+	Medium</label>
+	
+
+	<label for="nap33i2" class="checkbox">
+	<input id="nap33i2" type="checkbox"/>
+	Large</label>
+	
+
+
+</div>
+	
+<span id="nap34" class="napkeeComponent napkeeLabel ">Size:</span>
+	
+<img id="nap36" src="js/holder.js/77x79" class="napkeeComponent napkeeImage" />
+<table border="0" id="nap36table" class="napkeeComponent napkeeImageTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap36label" class="napkeeImageLabel">Profile image</span>
+		</td>
+	</tr>
+</table>
+
+	
+	
+    <script type="text/javascript" charset="utf-8">
+	    function showMockup(url,params){
+			var finalUrl = url + "?";
+			if (params!=null){
+				jQuery.each(params, function(par, field){
+					finalUrl += par + "=" + $("#"+field).val() + "&";
+				});
+			}
+			location.href = finalUrl;
+		}
+		$(document).ready(function(){
+			$(".accordion").each(function(){
+				var _acc = $(this);
+				_acc.find(".accordion-inner").height(_acc.height() - (_acc.find(".accordion-inner").length * 36));
+			});
+			$(document).on("click", function(e){
+				$("[data-date]").datepicker('show');
+			});
+		
+			
+var flashvarsnap35 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
+var paramsnap35 = {wmode: "transparent"};
+var attributesnap35 = {};
+swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap35", "584", "32", "9.0.0", false, flashvarsnap35, paramsnap35, attributesnap35);
+$("#nap35table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+
+	
+$("#nap2").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var chartOptnap3 = [10,20, 30, 40];
+$("#nap3").sparkline(chartOptnap3, {type: "bar", width: "85px", height: "62px", barSpacing: 10, barWidth:20});
+	
+$("#nap5").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+
+$("#nap8").click(function(event){
+});
+
+	
+var flashvarsnap12 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
+var paramsnap12 = {wmode: "transparent"};
+var attributesnap12 = {};
+swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap12", "138", "100", "9.0.0", false, flashvarsnap12, paramsnap12, attributesnap12);
+$("#nap12table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap6").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap13 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
+var paramsnap13 = {wmode: "transparent"};
+var attributesnap13 = {};
+swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap13", "173", "104", "9.0.0", false, flashvarsnap13, paramsnap13, attributesnap13);
+$("#nap13table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+
+$("#nap4").click(function(event){
+});
+
+	
+$("#nap7").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap14_0 = {color:"13369344", borderColor:"", rotation:"0"};
+var paramsnap14_0 = {wmode: "transparent"};
+var attributesnap14_0 = {};
+swfobject.embedSWF("swf/NapkeeCircle.swf", "nap14_0", "13", "12", "9.0.0", false, flashvarsnap14_0, paramsnap14_0, attributesnap14_0);
+$("#nap14_0table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap14_1 = {color:"15843890", borderColor:"", rotation:"0"};
+var paramsnap14_1 = {wmode: "transparent"};
+var attributesnap14_1 = {};
+swfobject.embedSWF("swf/NapkeeCircle.swf", "nap14_1", "13", "12", "9.0.0", false, flashvarsnap14_1, paramsnap14_1, attributesnap14_1);
+$("#nap14_1table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap14_2 = {color:"3700253", borderColor:"", rotation:"0"};
+var paramsnap14_2 = {wmode: "transparent"};
+var attributesnap14_2 = {};
+swfobject.embedSWF("swf/NapkeeCircle.swf", "nap14_2", "13", "12", "9.0.0", false, flashvarsnap14_2, paramsnap14_2, attributesnap14_2);
+$("#nap14_2table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+	
+	
+	
+	
+	
+$("#nap20").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap21").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap23 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
+var paramsnap23 = {wmode: "transparent"};
+var attributesnap23 = {};
+swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap23", "45", "48", "9.0.0", false, flashvarsnap23, paramsnap23, attributesnap23);
+$("#nap23table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap24 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
+var paramsnap24 = {wmode: "transparent"};
+var attributesnap24 = {};
+swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap24", "44", "45", "9.0.0", false, flashvarsnap24, paramsnap24, attributesnap24);
+$("#nap24table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap25").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap26").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+	$("#nap28").tooltip({
+		trigger: "manual",
+		placement: "top"
+	}).tooltip('show');
+	
+	
+	
+$("#nap31").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+var flashvarsnap32 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
+var paramsnap32 = {wmode: "transparent"};
+var attributesnap32 = {};
+swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap32", "138", "97", "9.0.0", false, flashvarsnap32, paramsnap32, attributesnap32);
+$("#nap32table").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+
+$("#nap33").click(function(event){
+});
+
+	
+$("#nap34").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap36").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+		});
+	</script>
+  </body>
+</html>
