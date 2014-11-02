@@ -93,6 +93,18 @@ def todo(request):
     context = RequestContext(request)
     tasks = Task.objects.all
     return render_to_response('tasks/TODO.html', {'tasks': tasks}, context)
+def task_form(request):
+    context = RequestContext(request)
+    if reuqest.method == 'POST':
+        form = Task(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/tasks/')
+        else:
+            print(form.erros)
+    else:
+        form = Task()
+    return render_to_response('tasks/index.html', {'form': form}, context)
 
 def user_logout(request):
     logout(request)
