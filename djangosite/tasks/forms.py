@@ -35,7 +35,7 @@ class TagForm(forms.ModelForm):
 
 class TaskForm(forms.ModelForm):
     name = forms.CharField(help_text = 'Name of task')
-    size = forms.ModelChoiceField(widget=forms.RadioSelect, queryset = Size.objects.all(), help_text = 'Size')
+    size = forms.ModelChoiceField(widget=forms.RadioSelect, empty_label = None, queryset = Size.objects.all(), help_text = 'Size')
     #due = forms.DateField(widget = SplitDateTimeWidget)
     due = forms.DateField(widget = AdminDateWidget, help_text = 'Due date')
     assigned = forms.DateField(widget = SelectDateWidget, help_text = 'Date assigned', required = False)
