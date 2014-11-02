@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="{% static 'css/jquery.orgchart.css'%} ">
 	<link rel="stylesheet" href="{% static 'css/jquery.treeview.css'%} ">
 	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	
 	<style type="text/css">
 	#napkeeCanvas {
@@ -158,7 +160,6 @@
 	top:221px;
 	z-index:6;
 	width:305px;
-	height:143px;
 	font-size: 28px;
 	font-style:normal;
 	font-weight:normal;
@@ -516,6 +517,20 @@
 	color:#000000;
 }
 	
+#nap311{
+	left:352px;
+	top:592px;
+	width:100.10000000000001px;
+	height:21px;
+	z-index:27;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
 #nap32c{
 	position:absolute;
 	left:1002px;
@@ -527,6 +542,23 @@
 	filter:alpha(opacity=100);
 }
 #nap32table{
+	width:138px;
+	height:97px;
+	z-index:29;
+	display:none;
+}
+
+#nap32cc{
+	position:absolute;
+	left:1002px;
+	top:616px;
+	width:138px;
+	height:97px;
+	z-index:28;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+#nap32cctable{
 	width:138px;
 	height:97px;
 	z-index:29;
@@ -666,9 +698,9 @@
 	<table>
     {% for task in tasks %}
 	<tr>
+	{{ task }}<br/>
 	<label for="nap8i1" class="checkbox">
-	<input id="nap8i1" type="checkbox"/>
-	{{ task }}</label>
+	{{ task.desc }}</label>
 
 	<!--label for="nap8i0" class="checkbox">
 	<input id="nap8i0" type="checkbox"/>
@@ -795,9 +827,9 @@
 </div>
 
 	
-<span id="nap20" class="napkeeComponent napkeeLabel ">Complete/Uncomplete</span>
+<span id="nap20" class="napkeeComponent napkeeLabel ">Complete/Incomplete</span>
 	
-<span id="nap21" class="napkeeComponent napkeeTitle">Jane&apos;s Tasks</span>
+<span id="nap21" class="napkeeComponent napkeeTitle">Your Tasks</span>
 	
 <div id="nap23c" class="napkeeComponent napkeeShape">
 <div id="nap23"></div>
@@ -853,10 +885,9 @@
 	</div>
 </div>
 	
-<span id="nap31" class="napkeeComponent napkeeLabel ">Current Tasks :</span>
+<span id="nap31" class="napkeeComponent napkeeLabel ">Current Tasks:</span>
 	
 <div id="nap32c" class="napkeeComponent napkeeShape">
-<div id="nap32"></div>
 <table border="0" id="nap32table" class="napkeeComponent napkeeShapeTable" >
 	<tr>
 		<td align="center" valign="middle">
@@ -865,7 +896,37 @@
 	</tr>
 </table>
 </div>
-	
+	{% csrf_token %}
+	{% for hidden in form.hidden_fields %}
+		{{ hidden }}
+	{% endfor %}
+<div id="nap311" class="napkeeComponent napkeeShape"><span id="jyj" class="napkeeShapeLabel">Add a Task:</span>
+<table border="0" class="napkeeComponent napkeeShapeTable" style="background-color:#FFFFFF">
+
+	<!--
+	<input style="margin-bottom: 15px;" type="text" placeholder="Name" id="Name" name="name"><br />
+	<input style="margin-bottom: 15px;" type="radio" placeholder="one" id="assigned" name="assigned">
+	<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
+	<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
+	-->
+	{% for field in form.visible_fields %}
+	<tr>
+		<td align="center" valign="middle"><br/><br/>
+		{{ field.label }}
+		{{ field }}
+		<br/>
+		</td>
+	{% endfor %}
+	</tr>
+</table>
+
+						<input type="submit" name="create" value="create task" />
+</div>
+
+<div id="nap32cc" class="napkeeComponent napkeeShape">
+
+</div>
+
 <div id="nap33" class="napkeeComponent napkeeCheckboxGroup">
 	<label for="nap33i0" class="checkbox">
 	<input id="nap33i0" type="checkbox"/>
@@ -887,7 +948,7 @@
 	
 <span id="nap34" class="napkeeComponent napkeeLabel ">Size:</span>
 	
-<img id="nap36" src="{% static 'images/logo.jpg'%}" class="napkeeComponent napkeeImage" />
+<img id="nap36" src="{% static 'images/logo2.jpg'%}" class="napkeeComponent napkeeImage" />
 
 	
 	
