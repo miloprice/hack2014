@@ -1,17 +1,25 @@
 import datetime
 import math
 
-def duedateCalc(year, month, day, hour):
-    timeRemaining = datetime.datetime(year=year, month=month, day=day, hour=hour) - datetime.datetime.now()
+def duedateCalc(duedate):
+    now = datetime.now()
+    daysR = ((duedate.day - now.day) * 24) * 1.01 #everything in hours now
+    hoursR = (duedate.hour - now.hour) * 1.01
+    timeRemaining = daysR + hoursR
     return timeRemaining
 
 def TKalgorithm(d1): #dictionary contains only one element
     due = 0.0
     size = 0.0
-    due = key.due
-    size = key.size
+    due = duedateCalc(d1.due)
+    size = d1.size
     amazingAlg = due + size
     return amazingAlg
-        
 
-duedateCalc(2014, 11, 2, 12)
+def SortingDict(d2):
+    newL = []
+    for key in d2:
+        priority = TKalgorithm(key)
+        newL.append(priority, key)
+    return newL
+
