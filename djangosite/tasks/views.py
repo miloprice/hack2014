@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from forms import UserForm
 from models import UserProfile
 from django.shortcuts import redirect
+from tasks.models import Task
 
 def index(request):
     context = RequestContext(request)
@@ -82,6 +83,13 @@ def user_login(request):
     # Not a HTTP POST - most likely a HTTP GET. In this case, we render the login form for the user.
     else:
         return render_to_response('tasks/index.html', context_dict, context)
+
+def task(request):
+    context = RequestContext(request)
+    tasks = Task.objects.get(all)
+
+    return render_to_response('tasks/tasktest.html', {'tasks': tasks}, context)
+
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/tasks/')
