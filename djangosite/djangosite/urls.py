@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tasks/', include('tasks.urls')),
     url(r'^tasktest/', include('tasks.urls')),
+    url(r'^todo/$', 'tasks.views.todo'),
 )

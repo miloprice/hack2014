@@ -86,9 +86,12 @@ def user_login(request):
 
 def task(request):
     context = RequestContext(request)
-    tasks = Task.objects.get(all)
+    #tasks = Task.objects.get(all)
+    return render_to_response('tasks/tasktest.html', {}, context)
 
-    return render_to_response('tasks/tasktest.html', {'tasks': tasks}, context)
+def todo(request):
+    context = RequestContext(request)
+    return render_to_response('tasks/TODO.html', {}, context)
 
 def user_logout(request):
     logout(request)
