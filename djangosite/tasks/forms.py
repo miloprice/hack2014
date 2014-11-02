@@ -1,6 +1,8 @@
 from django import forms
-from tasks.models import Priority, Status, Size, Tag, Task, Subgoal
+from tasks.models import Status, Size, Tag, Task, Subgoal
 from django.contrib.auth.models import User
+from django.forms.extras.widgets import SelectDateWidget 
+from django.contrib.admin.widgets import AdminDateWidget
 
 class UserForm(forms.ModelForm):
     username = forms.CharField(help_text = "Please enter a username")
@@ -31,7 +33,15 @@ class TagForm(forms.ModelForm):
         model = Tag
         fields = ['name', 'color']
 
-class Task(forms.ModelForm):
+class TaskForm(forms.ModelForm):
+    name = forms.CharField(help_text = 'Name of task')
+    size = forms.ModelChoiceField(widget=forms.RadioSelect, empty_label = None, queryset = Size.objects.all(), help_text = 'Size')
+    #due = forms.DateField(widget = SplitDateTimeWidget)
+    due = forms.DateField(widget = AdminDateWidget, help_text = 'Due date')
+    assigned = forms.DateField(widget = SelectDateWidget, help_text = 'Date assigned', required = False)
+    status = Status.objects.all()
+    all_day = forms.NullBooleanSelect()
+    tags = forms.MultipleChoiceField(required=False, help_text = 'tags')
 
     class Meta:
         model = Task

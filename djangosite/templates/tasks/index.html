@@ -30,7 +30,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>
+			</button>
+
 			<a class="brand" href="/tasks/">Taskameleon</a>
 			<div class="nav-collapse collapse">
 			</div>
@@ -84,24 +85,50 @@
 		<div class = "panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. What is HTML?</a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Make Tasks</a>
                 </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
 				<div class="panel-body">
-					<p>some text</p>
+					<h2>Make a Task</h2>
+					<form class="span6" id="task_form" method="post" action="task_form">
+						{% csrf_token %}
+						{% for hidden in form.hidden_fields %}
+							{{ hidden }}
+						{% endfor %}
+						<!--
+						<input style="margin-bottom: 15px;" type="text" placeholder="Name" id="Name" name="name"><br />
+						<input style="margin-bottom: 15px;" type="radio" placeholder="one" id="assigned" name="assigned">
+						<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
+						<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
+						-->
+						{% for field in form.visible_fields %}
+							{{ field.name }}
+							{{ field }}
+							<br />
+						{% endfor %}
+						<input type="submit" name="create" value="create task" />
+					</form>
                 </div>
             </div>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What is Twitter Bootstrap?</a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">View Tasks</a>
                 </h4>
             </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <p>Twitter Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+            <div id="collapseTwo" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<ul>
+						{% if tasks %}
+						{% for task in tasks %}
+						<li>{{ task }}</li>
+						{% endfor %}
+						{% else %}
+						<p>No tasks to complete</p>
+						{% endif %}
+					</ul>
                 </div>
             </div>
         </div>
