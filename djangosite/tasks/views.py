@@ -94,7 +94,30 @@ def task(request):
 def todo(request):
     context = RequestContext(request)
     tasks = Task.objects.all
-    return render_to_response('tasks/TODO.html', {'tasks': tasks}, context)
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/todo/')
+        else:
+            print(form.errors)
+    else:
+        form = Task()
+
+    return render_to_response('tasks/TODO.html', {'tasks': tasks, 'form': form}, context)
+
+def todo_form(request):
+    context = RequestContext(request)
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/todo/')
+        else:
+            print(form.errors)
+    else:
+        form = Task()
+    return render_to_response('tasks/TODO.html', {'form': form}, context)
 
 def task_form(request):
     context = RequestContext(request)

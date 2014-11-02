@@ -724,6 +724,29 @@
 	</table>
 </div>
 
+<div id="nap311" class="napkeeComponent napkeeShape"><span id="jyj" class="napkeeShapeLabel">Add a Task:</span>
+<table border="0" class="napkeeComponent napkeeShapeTable" style="background-color:#FFFFFF">
+
+	<!--
+	<input style="margin-bottom: 15px;" type="text" placeholder="Name" id="Name" name="name"><br />
+	<input style="margin-bottom: 15px;" type="radio" placeholder="one" id="assigned" name="assigned">
+	<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
+	<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
+	-->
+	{% for field in form.visible_fields %}
+	<tr>
+		<td align="center" valign="middle"><br/><br/>
+		{{ field.label }}
+		{{ field }}
+		<br/>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+
+						<input type="submit" name="create" value="create task" />
+</div>
+
 <div id="nap12c" class="napkeeComponent napkeeShape">
 <div id="nap12"></div>
 <table border="0" id="nap12table" class="napkeeComponent napkeeShapeTable" >
@@ -765,13 +788,6 @@
 	<label for="nap4i3" class="checkbox">
 	<input id="nap4i3" type="checkbox"/>
 	Other (3)</label>
-	
-
-	<span id="nap4i4"></span>
-	
-
-	<span id="nap4i5"></span>
-	
 
 	<label for="nap4i6" class="checkbox">
 	<input id="nap4i6" type="checkbox"/>
@@ -786,7 +802,6 @@
 	<label for="nap4i8" class="checkbox">
 	<input id="nap4i8" type="checkbox"/>
 	Low Priority (4)</label>
-	
 
 
 </div>
@@ -900,28 +915,7 @@
 	{% for hidden in form.hidden_fields %}
 		{{ hidden }}
 	{% endfor %}
-<div id="nap311" class="napkeeComponent napkeeShape"><span id="jyj" class="napkeeShapeLabel">Add a Task:</span>
-<table border="0" class="napkeeComponent napkeeShapeTable" style="background-color:#FFFFFF">
 
-	<!--
-	<input style="margin-bottom: 15px;" type="text" placeholder="Name" id="Name" name="name"><br />
-	<input style="margin-bottom: 15px;" type="radio" placeholder="one" id="assigned" name="assigned">
-	<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
-	<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
-	-->
-	{% for field in form.visible_fields %}
-	<tr>
-		<td align="center" valign="middle"><br/><br/>
-		{{ field.label }}
-		{{ field }}
-		<br/>
-		</td>
-	{% endfor %}
-	</tr>
-</table>
-
-						<input type="submit" name="create" value="create task" />
-</div>
 
 <div id="nap32cc" class="napkeeComponent napkeeShape">
 
