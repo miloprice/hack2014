@@ -122,11 +122,11 @@
 				<div class="panel-body">
 					<ol>
 						{% if tasks %}
-						{% for task in tasks|priority_list %}
-						<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }}</li>
-						<!--{% endfor %}-->
+							{% for task in tasks|priority_list %}
+								<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }}</li>
+							{% endfor %}
 						{% else %}
-						<p>No tasks to complete</p>
+							<p>No tasks to complete</p>
 						{% endif %}
 					</ul>
                 </div>
