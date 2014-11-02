@@ -20,6 +20,14 @@
 	header, section{
 		margin:4cm;
 	}
+	
+	#namefield input {
+		width:500px;
+	}
+	
+	#descfield input, textarea{
+		width:800px;
+	}
 </style>
 <header>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -104,18 +112,28 @@
 					<h2>Make a Task</h2>
 					<form class="span6" id="task_form" method="post" action="task_form">
 						{% csrf_token %}
-						<br />
+						<table>
+						<tr><td>
 						<strong>{{ form.name.help_text }}:</strong> <br />
+						<div id="namefield">
 						{{ form.name }} 
+						</div>
+						</td>
 						<br />
-						<strong>Date Due:</strong><br />
+						<td><strong>Date Due:</strong><br />
 						<input style="margin-bottom: 15px;" type="date" placeholder="due" id="due" name="due"><br />
+						</td></tr><tr><td>
 						<strong>Size of Task:</strong><br />
 						{{ form.size }}
+						</td><td>{{ form.all_day.label }}<br/>{{ form.all_day }}</td><td>{{ form.repeat.label }} {{ form.all_day }}</td></tr>
+						<tr><td colspan=2>
 						<strong>{{ form.desc.help_text }}:</strong><br />
 						{{ form.desc }}
 						<br />
-						<input type="submit" name="create" value="create task" />
+						<div id="descfield">
+						<input type="submit" name="create" value="create task" /></div>
+						</td></tr>
+						</table>
 					</form>
                 </div>
             </div>

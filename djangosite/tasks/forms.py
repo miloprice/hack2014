@@ -28,12 +28,12 @@ class TagForm(forms.ModelForm):
         fields = ['name', 'color']
 
 class TaskForm(forms.ModelForm):
-    name = forms.CharField(help_text = 'Name of task', label='Name')
+    name = forms.CharField(help_text='Name of task', label='Name')
     size = forms.ModelChoiceField(widget=forms.RadioSelect, empty_label = None, queryset = Size.objects.all(), help_text = 'Size')
     due = forms.DateField(widget = SelectDateWidget, help_text = 'Due date')
     all_day = forms.NullBooleanSelect()
-    tags = forms.MultipleChoiceField(required=False, help_text = 'tags')
-    desc = forms.CharField(help_text="Description of Task", required=False)
+    #tags = forms.MultipleChoiceField(required=False, help_text = 'tags')
+    desc = forms.CharField(widget = forms.Textarea, help_text="Description of Task", required=False)
     location = forms.CharField(help_text="Location of Task", required=False)
 
     class Meta:
