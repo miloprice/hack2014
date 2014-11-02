@@ -93,20 +93,17 @@
 					<h2>Make a Task</h2>
 					<form class="span6" id="task_form" method="post" action="task_form">
 						{% csrf_token %}
-						{% for hidden in form.hidden_fields %}
-							{{ hidden }}
-						{% endfor %}
-						<!--
-						<input style="margin-bottom: 15px;" type="text" placeholder="Name" id="Name" name="name"><br />
-						<input style="margin-bottom: 15px;" type="radio" placeholder="one" id="assigned" name="assigned">
-						<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
-						<input style="margin-bottom: 15px;" type="radio" placeholder="two" id="assigned" name="assigned">
-						-->
-						{% for field in form.visible_fields %}
-							{{ field.label }}
-							{{ field }}
-							<br />
-						{% endfor %}
+						<br />
+						<strong>{{ form.name.help_text }}:</strong> <br />
+						{{ form.name }} 
+						<br />
+						<strong>Date Due:</strong><br />
+						<input style="margin-bottom: 15px;" type="date" placeholder="due" id="due" name="due"><br />
+						<strong>Size of Task:</strong><br />
+						{{ form.size }}
+						<strong>{{ form.desc.help_text }}:</strong><br />
+						{{ form.desc }}
+						<br />
 						<input type="submit" name="create" value="create task" />
 					</form>
                 </div>
@@ -123,7 +120,7 @@
 					<ol>
 						{% if tasks %}
 							{% for task in tasks|priority_list %}
-								<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }}</li>
+							<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }} Description: {{ task.desc }}</li>
 							{% endfor %}
 						{% else %}
 							<p>No tasks to complete</p>

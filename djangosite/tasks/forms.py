@@ -1,5 +1,5 @@
 from django import forms
-from tasks.models import Status, Size, Tag, Task, Subgoal
+from tasks.models import Size, Tag, Task, Subgoal
 from django.contrib.auth.models import User
 from django.forms.extras.widgets import SelectDateWidget 
 from django.contrib.admin.widgets import AdminDateWidget
@@ -14,12 +14,6 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password']
-
-class StatusForm(forms.ModelForm):
-
-    class Meta:
-        model = Status
-        fields = ['qualitative']
 
 class SizeForm(forms.ModelForm):
 
@@ -36,16 +30,15 @@ class TagForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
     name = forms.CharField(help_text = 'Name of task', label='Name')
     size = forms.ModelChoiceField(widget=forms.RadioSelect, empty_label = None, queryset = Size.objects.all(), help_text = 'Size')
-    #due = forms.DateField(widget = SplitDateTimeWidget)
     due = forms.DateField(widget = SelectDateWidget, help_text = 'Due date')
-    assigned = forms.DateField(widget = SelectDateWidget, help_text = 'Date assigned', required = False)
-    status = Status.objects.all()
     all_day = forms.NullBooleanSelect()
     tags = forms.MultipleChoiceField(required=False, help_text = 'tags')
+    desc = forms.CharField(help_text="Description of Task", required=False)
+    location = forms.CharField(help_text="Location of Task", required=False)
 
     class Meta:
         model = Task
-        fields = ['name', 'assigned', 'due', 'tags', 'status', 'size', 'all_day', 'repeat', 'location', 'desc']
+        fields = ['name', 'due', 'tags', 'size', 'all_day', 'repeat', 'location', 'desc']
 
 class Subgoal(forms.ModelForm):
 
