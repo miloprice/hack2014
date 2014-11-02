@@ -11,6 +11,7 @@ from forms import UserForm, TaskForm, SizeForm
 from models import UserProfile
 from django.shortcuts import redirect
 from tasks.models import Task
+from tasks.TKalgorithm import duedateCalc, TKalgorithm, SortingDict
 
 def index(request):
     context = RequestContext(request)
