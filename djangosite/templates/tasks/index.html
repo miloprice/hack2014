@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-
+{% load priority_list %}
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,7 +122,7 @@
 				<div class="panel-body">
 					<ol>
 						{% if tasks %}
-						{% for task in tasks %}
+						{% for task in tasks|priority_list %}
 						<li>{{ task }}, Due: {{ task.due }}, Size: {{ task.size }}</li>
 						{% endfor %}
 						{% else %}
