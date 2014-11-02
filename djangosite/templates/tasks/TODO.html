@@ -1,17 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
   <head>
     <title>Napkee export</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/datepicker.css">
-	<link rel="stylesheet" href="css/colorpicker.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css">
-	<link rel="stylesheet" href="css/jquery.orgchart.css">
-	<link rel="stylesheet" href="css/jquery.treeview.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%} ">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%} ">
+	<link rel="stylesheet" href="{% static 'css/datepicker.css'%} ">
+	<link rel="stylesheet" href="{% static 'css/colorpicker.css'%} "
+	<link rel="stylesheet" href="{% static 'css/style.css'%} ">
+	<link rel="stylesheet" href="{% static 'css/smoothness/jquery-ui-1.10.3.custom.min.css'%} ">
+	<link rel="stylesheet" href="{% static 'css/jquery.orgchart.css'%} ">
+	<link rel="stylesheet" href="{% static 'css/jquery.treeview.css'%} ">
 	
 	
 	<style type="text/css">
@@ -588,20 +590,20 @@
 	
 	</style>
 	
-	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-	<script src="js/jquery.migration.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/jquery.swfobject.1-0.5.min.js"></script>
-    <script src="js/swfobject.js"></script>
-    <script src="js/jquery.sparkline.min.js"></script>
-    <script src="js/bootstrap-colorpicker.js"></script>
-    <script src="js/jquery.tools.min.js"></script>
-    <script src="js/holder.js"></script>
-    <script src="js/jquery.orgchart.min.js"></script>
-    <script src="js/jquery.treeview.min.js"></script>
-    <script src="js/jquery.tagcloud.min.js"></script>
+	<script src="{% static 'js/jquery-1.10.2.min.js'%} "></script>
+	<script src="{% static 'js/jquery-ui-1.10.3.custom.min.js'%} "></script>
+	<script src="{% static 'js/jquery.migration.js'%} "></script>
+    <script src="{% static 'js/bootstrap.min.js'%} "></script>
+	<script src="{% static 'js/bootstrap-datepicker.js'%} "></script>
+    <script src="{% static 'js/jquery.swfobject.1-0.5.min.js'%} "></script>
+    <script src="{% static 'js/swfobject.js'%} "></script>
+    <script src="{% static 'js/jquery.sparkline.min.js'%} "></script>
+    <script src="{% static 'js/bootstrap-colorpicker.js'%} "></script>
+    <script src="{% static 'js/jquery.tools.min.js'%} "></script>
+    <script src="{% static 'js/holder.js'%} "></script>
+    <script src="{% static 'js/jquery.orgchart.min.js'%} "></script>
+    <script src="{% static 'js/jquery.treeview.min.js'%} "></script>
+    <script src="{% static 'js/jquery.tagcloud.min.js'%} "></script>
 	
   </head>
   <body>
@@ -621,7 +623,7 @@
 </table>
 </div>
 	
-<div id="nap1container" class="napkeeComponent napkeeDatagrid">
+<!--div id="nap1container" class="napkeeComponent napkeeDatagrid">
 	<table id="nap1" class="table">
 		<thead>
 	<tr>
@@ -651,16 +653,22 @@
 <tr><td class="odd filler verticalLine"></td><td class="odd filler verticalLine"></td><td class="odd filler verticalLine"></td><td class="odd filler"></td></tr>
 </tbody>
 	</table>
-</div>
+</div-->
 	
-<button id="nap2" type="button" class="napkeeComponent napkeeButton btn"><table align="center"><tr><td valign="middle"><img src="icons/napkee/SquaredPlusIcon.png" width="24" height="24" /> </td><td valign="middle">Add Task</td></tr></table></button>
+<button id="nap2" type="button" class="napkeeComponent napkeeButton btn"><table align="center"><tr><td valign="middle"><img src="{% static 'icons/napkee/SquaredPlusIcon.png'%}" width="24" height="24" /> </td><td valign="middle">Add Task</td></tr></table></button>
 	
 <div id="nap3" class="napkeeComponent napkeeColumnchart"></div>
 	
 <span id="nap5" class="napkeeComponent napkeeLabel ">Filters:</span>
 	
 <div id="nap8" class="napkeeComponent napkeeCheckboxGroup">
-	<label for="nap8i0" class="checkbox">
+    {% for task in tasks %}
+
+	<label for="nap8i1" class="checkbox">
+	<input id="nap8i1" type="checkbox"/>
+	{{ task }}</label>
+
+	<!--label for="nap8i0" class="checkbox">
 	<input id="nap8i0" type="checkbox"/>
 	History Essay</label>
 	
@@ -677,9 +685,9 @@
 
 	<label for="nap8i3" class="checkbox">
 	<input id="nap8i3" type="checkbox"/>
-	Find Mother&apos;s Day gift</label>
+	Find Mother&apos;s Day gift</label-->
 	
-
+    {% endfor %}
 
 </div>
 	
@@ -784,16 +792,7 @@
 	</tr>
 </table>
 </div>
-	
-<div id="nap15" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
-	
-<div id="nap16" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
-	
-<div id="nap17" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
-	
-<div id="nap18" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
-	
-<div id="nap19" class="napkeeComponent napkeeUnsupported">Sorry, this components is not supported (yet!)</div>
+
 	
 <span id="nap20" class="napkeeComponent napkeeLabel ">Complete/Uncomplete</span>
 	
@@ -887,7 +886,7 @@
 	
 <span id="nap34" class="napkeeComponent napkeeLabel ">Size:</span>
 	
-<img id="nap36" src="js/holder.js/77x79" class="napkeeComponent napkeeImage" />
+<img id="nap36" src="{% static 'js/holder.js/77x79'%}" class="napkeeComponent napkeeImage" />
 <table border="0" id="nap36table" class="napkeeComponent napkeeImageTable" >
 	<tr>
 		<td align="center" valign="middle">
@@ -921,7 +920,7 @@
 var flashvarsnap35 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
 var paramsnap35 = {wmode: "transparent"};
 var attributesnap35 = {};
-swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap35", "584", "32", "9.0.0", false, flashvarsnap35, paramsnap35, attributesnap35);
+swfobject.embedSWF("{% static 'swf/NapkeeRoundRect.swf'%}", "nap35", "584", "32", "9.0.0", false, flashvarsnap35, paramsnap35, attributesnap35);
 $("#nap35table").click(function(event){
 	
 	event.stopPropagation();
@@ -956,7 +955,7 @@ $("#nap8").click(function(event){
 var flashvarsnap12 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
 var paramsnap12 = {wmode: "transparent"};
 var attributesnap12 = {};
-swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap12", "138", "100", "9.0.0", false, flashvarsnap12, paramsnap12, attributesnap12);
+swfobject.embedSWF("{% static 'swf/NapkeeRoundRect.swf'}", "nap12", "138", "100", "9.0.0", false, flashvarsnap12, paramsnap12, attributesnap12);
 $("#nap12table").click(function(event){
 	
 	event.stopPropagation();
@@ -974,7 +973,7 @@ $("#nap6").click(function(event){
 var flashvarsnap13 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
 var paramsnap13 = {wmode: "transparent"};
 var attributesnap13 = {};
-swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap13", "173", "104", "9.0.0", false, flashvarsnap13, paramsnap13, attributesnap13);
+swfobject.embedSWF("{% static 'swf/NapkeeRoundRect.swf'%}", "nap13", "173", "104", "9.0.0", false, flashvarsnap13, paramsnap13, attributesnap13);
 $("#nap13table").click(function(event){
 	
 	event.stopPropagation();
@@ -997,7 +996,7 @@ $("#nap7").click(function(event){
 var flashvarsnap14_0 = {color:"13369344", borderColor:"", rotation:"0"};
 var paramsnap14_0 = {wmode: "transparent"};
 var attributesnap14_0 = {};
-swfobject.embedSWF("swf/NapkeeCircle.swf", "nap14_0", "13", "12", "9.0.0", false, flashvarsnap14_0, paramsnap14_0, attributesnap14_0);
+swfobject.embedSWF("{% static 'swf/NapkeeCircle.swf'%}", "nap14_0", "13", "12", "9.0.0", false, flashvarsnap14_0, paramsnap14_0, attributesnap14_0);
 $("#nap14_0table").click(function(event){
 	
 	event.stopPropagation();
@@ -1008,7 +1007,7 @@ $("#nap14_0table").click(function(event){
 var flashvarsnap14_1 = {color:"15843890", borderColor:"", rotation:"0"};
 var paramsnap14_1 = {wmode: "transparent"};
 var attributesnap14_1 = {};
-swfobject.embedSWF("swf/NapkeeCircle.swf", "nap14_1", "13", "12", "9.0.0", false, flashvarsnap14_1, paramsnap14_1, attributesnap14_1);
+swfobject.embedSWF("{% static 'swf/NapkeeCircle.swf'%}", "nap14_1", "13", "12", "9.0.0", false, flashvarsnap14_1, paramsnap14_1, attributesnap14_1);
 $("#nap14_1table").click(function(event){
 	
 	event.stopPropagation();
@@ -1019,7 +1018,7 @@ $("#nap14_1table").click(function(event){
 var flashvarsnap14_2 = {color:"3700253", borderColor:"", rotation:"0"};
 var paramsnap14_2 = {wmode: "transparent"};
 var attributesnap14_2 = {};
-swfobject.embedSWF("swf/NapkeeCircle.swf", "nap14_2", "13", "12", "9.0.0", false, flashvarsnap14_2, paramsnap14_2, attributesnap14_2);
+swfobject.embedSWF("{% static 'swf/NapkeeCircle.swf'%}", "nap14_2", "13", "12", "9.0.0", false, flashvarsnap14_2, paramsnap14_2, attributesnap14_2);
 $("#nap14_2table").click(function(event){
 	
 	event.stopPropagation();
@@ -1049,7 +1048,7 @@ $("#nap21").click(function(event){
 var flashvarsnap23 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
 var paramsnap23 = {wmode: "transparent"};
 var attributesnap23 = {};
-swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap23", "45", "48", "9.0.0", false, flashvarsnap23, paramsnap23, attributesnap23);
+swfobject.embedSWF("{% static 'swf/NapkeeRoundRect.swf'%}", "nap23", "45", "48", "9.0.0", false, flashvarsnap23, paramsnap23, attributesnap23);
 $("#nap23table").click(function(event){
 	
 	event.stopPropagation();
@@ -1060,7 +1059,7 @@ $("#nap23table").click(function(event){
 var flashvarsnap24 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
 var paramsnap24 = {wmode: "transparent"};
 var attributesnap24 = {};
-swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap24", "44", "45", "9.0.0", false, flashvarsnap24, paramsnap24, attributesnap24);
+swfobject.embedSWF("{% static 'swf/NapkeeRoundRect.swf'%}", "nap24", "44", "45", "9.0.0", false, flashvarsnap24, paramsnap24, attributesnap24);
 $("#nap24table").click(function(event){
 	
 	event.stopPropagation();
@@ -1099,7 +1098,7 @@ $("#nap31").click(function(event){
 var flashvarsnap32 = {color:"0xFFFFFF", borderColor:"0x000000", rotation:"0"};
 var paramsnap32 = {wmode: "transparent"};
 var attributesnap32 = {};
-swfobject.embedSWF("swf/NapkeeRoundRect.swf", "nap32", "138", "97", "9.0.0", false, flashvarsnap32, paramsnap32, attributesnap32);
+swfobject.embedSWF("{% static 'swf/NapkeeRoundRect.swf'%}", "nap32", "138", "97", "9.0.0", false, flashvarsnap32, paramsnap32, attributesnap32);
 $("#nap32table").click(function(event){
 	
 	event.stopPropagation();

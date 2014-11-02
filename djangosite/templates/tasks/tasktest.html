@@ -40,6 +40,9 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
+                    {% for task in tasks %}
+                        Task: {{ task }}
+                    {% endfor %}
                     <p> (those were tasks)</p>
                     <p>HTML "stands" for HyperTnext Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
                 </div>
