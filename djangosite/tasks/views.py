@@ -66,7 +66,7 @@ def user_login(request):
             # If so, log the user in and redirect them to the homepage.
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/aquatics/')
+                return HttpResponseRedirect('/tasks/')
             # The account is inactive tell by adding variable to the template context.
             else:
                 context_dict['disabled_account'] = True
