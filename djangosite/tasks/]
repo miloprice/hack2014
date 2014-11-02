@@ -15,7 +15,7 @@ from tasks.models import Task
 def index(request):
     context = RequestContext(request)
     context_dict = {}
-    context_dict['form'] = TaskForm()
+    context_dict['form'] = TaskForm
     context_dict['tasks'] = Task.objects.all()
 #    if request.user.is_authenticated():
 #        user = str(request.user.get_full_name())
