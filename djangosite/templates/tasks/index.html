@@ -18,13 +18,6 @@
 
 <body>
 <style>
-	.login_form{
-		clear: both;
-		display: inline-block;
-		overflow: hidden;
-		width: auto;
-		white-space: nowrap;
-	}
 	header, section{
 		margin:0 1% 25px 1%;
 		clear: both;
@@ -44,20 +37,35 @@
 			</div>
 			<div class="nav pull-right">
 				{% if user.is_authenticated %}
+				<li><a href="/tasks/logout/">Logout</a></li> 
 				{% else %}
-					<li><a href="/signup">Sign Up</a></li>
-					<li class="divider-vertical"></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
-						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-							<form method="post" action="login" accept-charset="UTF-8">
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign Up<strong class="caret"></strong></a>
+					<div class="dropdown-menu"style="padding: 15px; padding-bottom: 0px;">
+						<form id="user_form" method="post" action="register" accept-charset="UTF-8" enctype="multipart/form-data">
+							{% csrf_token %}
+							<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+							<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+							<input style="margin-bottom: 15px;" type="email" placeholder="email" id="email" name="email">
+							<input style="margin-bottom: 15px;" type="text" placeholder="First Name" id="first_name" name="first_name">
+							<input style="margin-bottom: 15px;" type="text" placeholder="Last Name" id="last_name" name="last_name">
+							<input class="btn btn-primary btn-block" type="submit" id="UserForm" name="UserForm" value="Sign up">
+							{{ user_form.as_p }}
+						</form>
+					</div>
+				</li>
+
+				<li class="divider-vertical"></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+					<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+						<form method="post" action="login" accept-charset="UTF-8" enctype="multipart/form-data">
 								{% csrf_token %}
 								<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
 								<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
 								<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
 								<label class="string optional" for="user_remember_me"> Remember me</label>
 								<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
-								<label style="text-align:center;margin-top:5px">or</label>
 							</form>
 						</div>
 					</li>

@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from forms import UserForm
+from models import UserProfile
 from django.shortcuts import redirect
 from tasks.models import Task
 
@@ -76,7 +78,7 @@ def user_login(request):
         else:
             print ("Invalid login details: {0}, {1}".format(username, password))
             context_dict['bad_details'] = True
-            return render_to_response('tasks/index.html', context_dict, context)
+            return HttpResponseRedirect('/tasks/')
 
     # Not a HTTP POST - most likely a HTTP GET. In this case, we render the login form for the user.
     else:
@@ -87,3 +89,7 @@ def task(request):
     tasks = Task.objects.get(all)
 
     return render_to_response('tasks/tasktest.html', {'tasks': tasks}, context)
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/tasks/')
